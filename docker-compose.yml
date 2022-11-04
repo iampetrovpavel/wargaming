@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  db:
+    hostname: localhost
+    image: postgres
+    environment:
+      POSTGRES_DB: "test"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+    ports:
+      - "5432:5432"
+  server:
+    hostname: localhost
+    image: test/wgserver
+    ports:
+      - "3001:3001"
+  client:
+    hostname: localhost
+    image: test/wgclient
+    ports:
+      - "8080:8080"
